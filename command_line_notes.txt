@@ -1,0 +1,27 @@
+# why learn the command line 
+1. more control over my machine ... there are many things that can only do from the command line (that can't do from the GUI, ie graphically)
+2. it's faster than using the GUI 
+3. universality, ie will run on any machine (ie will work the same on linux and mac)
+4. its a requirement to being a software engineer
+5. necessary for cloud computing
+
+# don't memorize, practice instead
+
+# all linux distros are technically unix-like, as they wanted everything to be free (as in freedom of speech), and arent certified by the company who owns unix trademark. macos is part of unix as they are certified by the company that owns the unix trademark as fitting to unix standards
+
+# the kernel is the part of an OS that facilitates interactions between hardware and software
+linux kernal was combined with the GNU OS elements in order to complete a full OS 
+in modern times, the term linux refers to both the kernel and to all the software that is part of the linux ecosystem 
+linux distributions typically bundle together the linux kernal, GNU tools, documentations, a package manager, a window system, and a desktop environment 
+
+# a shell is software that is a computer inferface to an OS. shells expose the OS's services to human users or other programs. the shell takes our commands and gives them to the OS to perform 
+# a terminal is a program/application that runs a shell. 
+terminal --> shell --> OS 
+
+# there is more than one shell. the most common one is called bash. zsh (ie zshell) is the modern macOS built-in shell 
+
+# bash is the default shell in most linux-based system 
+
+
+
+
