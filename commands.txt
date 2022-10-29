@@ -1,0 +1,144 @@
+date
+//==> Wed Oct 26 17:01:37 MDT 2022
+--
+clear 
+//==> clears current terminal window
+can also type command-k 
+--
+ncal 
+//==> prints out a calendar, can pass ncal parameters to print past year/month calendars
+     October 2022      
+Mo     3 10 17 24 31
+Tu     4 11 18 25   
+We     5 12 19 26   
+Th     6 13 20 27   
+Fr     7 14 21 28   
+Sa  1  8 15 22 29   
+Su  2  9 16 23 30  
+--
+cal 
+//==>
+ October 2022      
+Su Mo Tu We Th Fr Sa  
+                   1  
+ 2  3  4  5  6  7  8  
+ 9 10 11 12 13 14 15  
+16 17 18 19 20 21 22  
+23 24 25 26 27 28 29  
+30 31  
+--
+echo argument
+//==> argument
+--
+man 
+//==> manual pages are built-in docs that explain how to use various commands 
+ex 
+> man ex_command  
+type q to get out of the manual
+scroll up/down w arrow keys
+f or spacebar will go down one page, b will go back one page
+/-option allows us to search within man pages
+note that some commands have no man page, in which case they will have a help page and can use..
+> help ex_command 
+--
+control-d will quit out of a running program
+--
+type
+#==> tells us the type of a command, ie where or how it is defined, there are four types 
+--
+which
+#==> tells us where the command is located (ex in what directory is located)
+--
+
+// NAVIGATING YOUR MACHINE //
+
+pwd 
+#==> print working directory command asks "where am i?" and will print the path of your current working directory starting from the root / 
+--
+ls
+#==> the list command will list the contents of a directory.
+with no options or arguments, it prints a list of the files and filters located in the current directory
+ls path (ex. ls /Users/gcochran/Desktop OR ls Desktop) will list the contents of a specific directory
+// useful ls options
+
+ls -l #==> will give us the "long" format for the directory (ex. permissions, size, modification date, etc)
+
+ls -a #==> will show us all files and folders including hidden files/folders (note that hidden files/folders start with a dot (ex. .cache))
+--
+
+// CREATING FILES/FOLDERS //
+
+touch 
+#==> provide a filename and that file will be created in the current directory 
+- can create multiple files at once (ex. > touch ex1.txt ex2.txt)
+- dont need to create the file in the current directory, just provide the path before the file name
+--
+- the file extension (ex. .txt would be the extension) in the name of the file is not what determines the file type.... (but need to have the correct file type in the name so that various applications know how to treat the file, ex. open a .pdf in a pdf viewer app)
+- can use the filt command to determine file type (ex. .txt .pdf .jpg etc)
+
+#
+rules for naming files & folders
+
+- stick to numbers, letters, underscores and dashes (use camelCase if one idea rather than having spaces); DONT USE ANY OTHER SYMBOLS 
+- AVOID SPACES in names [have to use "" in order to use any commands in terminal for files/folders that are multiple words; or can escape the space with \; ex. file Launch\ School ]
+#
+
+mkdir 
+#==> creates new folders (aka directories)
+- like touch, can make multiple at once & create one outside the current directory by giving the path
+mkdir -p #==> will make nested folders, ex...
+  mkdir -p Horses/Mares (will create a horses folder and a mares folder inside of it)
+
+# DELETING, COPYING & MOVING #
+
+rm 
+#==> deletes files from our machine
+- note that cannot undo (unlike if we were to move a file to trash with GUI), does delete permanently 
+rm file.txt #==> will delete file.txt if that file exists in the current directory 
+
+- can delete multiple things at once, like many other commands previously discussed 
+- like many other commands, can write the relative or absolute path to remove a file from another directory that are not currently in
+
+rm -d FOLDER #==> will delete directories, if they are empty 
+note that rmdir works the exact same as rm -d 
+.. for both, only work on empty directories 
+
+rm -r FOLDER #==> will delete the directory, recursively ie will delete all child folders/files of that directory therefore be careful with this command
+
+can use rm -ri rather than rm -r #==> which protects against mistakes because will prompt user before deleting the folder 
+
+--
+
+mv 
+#==> the move command moves files and directories from one location to another 
+> mv source destination 
+- note that have to provide paths... ofc 
+- can move multiple files/folders at once 
+- note that the destination folder has to exist, otherwise will rename or not work 
+- if only want to move a file into the parent folder of current folder.. just do > mv file .. 
+
+// to rename // 
+
+> mv source newName 
+- can only rename one thing at a time 
+- can both rename and move to a new location at the same time .. just add path 
+ex. > mv file.txt ~/Desktop/file2.txt [this renamed the file and moved it to my Desktop directory]
+
+-- 
+
+cp 
+#==> copy command to create copies of files and folders
+> cp file copyOfFile 
+- can also move as am copying within the same command, just provide a destination path ex. ~/copyOfFile 
+
+
+
+
+
+
+
+
+
+
+
+

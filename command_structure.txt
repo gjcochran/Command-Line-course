@@ -1,0 +1,28 @@
+> command -options arguments
+- options modify the commands behavior
+
+most commands support a host of options that we can choose to use when executing the command. they will modify the behavior of the command in predefined ways. options are prefixed by a dash, ex. -h
+
+can combine multiple options 
+
+ex. 
+> ncal -3 -j
+OR 
+> ncal -3j
+//#==> both of those will print a new version of calendar that shows 3 months and in a julian calendar 
+
+some commands support long form options, note that most commands don't 
+
+ex. 
+> date -u 
+OR 
+> date --universal 
+//#==> both of these will print the date in UTC time, rather than current timezone 
+
+- arguments are the things that the command acts upon or uses
+
+arguments aka parameters aka operands
+
+can pass in file names as arguments
+
+ex. > sort file.txt //==> will print out each line of the file.txt file in alphabetical order
