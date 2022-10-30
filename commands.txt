@@ -130,6 +130,88 @@ cp
 #==> copy command to create copies of files and folders
 > cp file copyOfFile 
 - can also move as am copying within the same command, just provide a destination path ex. ~/copyOfFile 
+- to copy directories, need to copy all the contents of that folder, ie need to copy it recursively
+> cp -r file copyOfFile 
+
+-- 
+history 
+#==> will print all previous commands that have run 
+history | less #==> view all commands in more manageable way, exit with q 
+
+// history expansion 
+> !linenumberofthecommandthatwantorerun
+
+- can search through all previous commands in the history with ctrl-r and then type keywords [escape this search bar with down arrow]
+
+-- 
+
+cat 
+#==> concatenates (ie joins multiple files together for the print) and prints/displays the contents of files in the terminal 
+-- note that only works on text files ... can convert a pdf to text with command pdftotext and then view that 
+
+--
+
+less
+#==> displays the contents of a file, one page at a time [use less rather than cat for long files as will be easier to view/scroll thru]
+- can hit space bar to go through pages at a time [or any commands that use in manuals, as man uses less]
+  - space || f to go to the next page of the file
+  - b to go back to the previous page 
+  - Enter or Down arrow to scroll by one line 
+  - to search, type forward slash / followed by a pattern
+  - quit the less window within terminal by hitting q 
+
+--
+
+tac 
+#==> does same things as cat but prints the files in reverse, vertically (ie last line will be printed first, etc)
+
+-- 
+rev 
+#==> prints the contents of the file, reversing the order, horizontally (ie reverses letters in all words on each line)
+
+## note that cat, less, tac and rev dont modify the files themselves, just print them in various ways to our terminal console 
+
+-- 
+
+head 
+#==> prints the first 10 lines of a file to our terminal 
+is 10 by default, can write -n 12, for example, to print first 12 lines
+|| can just write > head -12 file (don't need the -n before the number)
+
+tail 
+#==> prints the last 10 lines of a file to our terminal 
+same as head, 10 is default.. and can use the -n option to change the number of lines to print 
+option -f on tail ... with the follow option, the tail command will stay open and add any appends to the file as those edits are made... ex. this is useful to monitor logs 
+
+-- 
+wc 
+#==> the word count command can tell us the number of words, lines, or bytes in files 
+by default, prints out 3 numbers... the lines, words, and bytes in a file 
+
+> wc -l #==> will only print the number of lines
+> wc -w #==> will only print the number of words 
+> wc -m #==> will only print the number of characters  
+> wc -c #==> will only print the number of bytes 
+
+--
+sort 
+#==> outputs the sorted contents of a file. by default, will sort the lines of a file alphabetically 
+- the option -r will sort in reverse order
+- option -n will sort numerically 
+- option -u will ignore duplicate values and only sort unique values
+- if file has columns, can use option -k columnnumber ex. > sort -k 2 file [otherwise will always sort by values in the first column, column 1]
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
