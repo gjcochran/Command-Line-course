@@ -202,6 +202,33 @@ sort
 - if file has columns, can use option -k columnnumber ex. > sort -k 2 file [otherwise will always sort by values in the first column, column 1]
 
 
+------
+
+tr
+#==> will take text from standard input and change/translate text in a specified way 
+[tr is one of several commands commonly used to transform text, other common ones are sed, awk, and mawk]
+
+ex. 
+cat msg [[ie a file named msg]] #==> she sells seashells by the seashore
+cat msg | tr s S #=> She SellS SeaShellS by the SeaShore 
+cat msg | tr a-z A-Z #==> SHE SELLS SEASHELLS BY THE SEASHORE 
+cat msg | tr -d s #==> he ell eahell by the eahore 
+
+--
+
+du 
+#==> disc usage 
+du -ha FOLDER #==> will show the file sizes of all files in a folder 
+
+-- 
+
+tee 
+#=> the tee program reads standard input and copies it to both standard output and to a file. this allows us to capture info part of the way thru a pipeline, w/o interrupting the flow 
+
+ex. > command1 | tee file.txt | command2 
+^^ command1 output will go to both file.txt and to command2 
+
+
 
 
 

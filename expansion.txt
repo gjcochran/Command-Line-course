@@ -1,0 +1,34 @@
+<!-- pathname expansion basics -->
+
+# wildcard characters (aka globbing patterns)
+
+- can use special wildcard characters to build paterns that can match multiple filenames at once
+// the * Wildcard 
+- the asterick (*) character represents zero or more characters in a filename
+  ex....
+  ls *.html will match any files that end with .html
+  cat blue* will match any files that start with "blue"
+  echo *at* will list all files that contain at ex. data.txt would be listed if its in the directory 
+
+// the ? Wildcard  
+- the question mark (?) character represents any single character
+
+ex...
+  ls app.?? with match any files named app that end with any two characters ex. app.js ; app.py 
+
+  ls pic?.png will match, for example... pic1.png, pic2.png, pica.png 
+
+// Range Wildcards 
+- inside of square brackets, [], we can specify a range of characters to match 
+
+ex....
+  ls pic[123].png #==> print all files that are pic1.png, pic2.png, or pic3.png 
+  ls file[0-9]
+  ls [A-F]*
+
+- can negate a range with the caret character (^)
+
+ex.. 
+  echo [^A-Z]* #==> list all files that do not start with an uppercase letter 
+  
+
