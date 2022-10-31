@@ -31,4 +31,35 @@ ex....
 ex.. 
   echo [^A-Z]* #==> list all files that do not start with an uppercase letter 
   
+///// Brace expansion
+
+Brace Expansion is used to generate arbitrary strings. Will generate multiple strings for us based on a pattern. 
+
+ex. touch page{1,2,3}.txt ... will generate 3 new files... page1.txt, page2.txt, & page3.txt
+ex. mkdir journal{1..365}.txt ... will generate 365 folders 
+ex. echo {2..10..2} #==> 2 4 6 8 10 
+ex. mkdir -p {Mon,Tue,Wed,Thurs,Fri,Sat,Sun}/{Breakfast,Lunch,Dinner} ... will create 7 folders with 3 subfolders in each 
+
+- can do nested brace expansion
+ex. echo (x,y{1..5},z) #==> x y1 y2 y3 y4 y5 z 
+
+///// Arithmetic Expansion
+the shell will perform arithmetic (ie addition, subtraction, multiplication, division, exponentiation, modulo) via expansion using the $((expression)) syntax 
+- the shell only performs integer aritmetic.. can't do floats & division often wont be accurate 
+
+ex. echo $((2+4)) #==> 6 
+
+
+///// Command Substitution 
+
+we can use the $(command) syntax to display the output of another command 
+- alternative syntax is `command`
+
+ex. 
+echo today is $(date) || echo today is `date`
+#==> today is Mon Oct 31 10:49:59 MDT 2022
+
+
+
+
 
