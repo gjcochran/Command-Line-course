@@ -228,6 +228,12 @@ tee
 ex. > command1 | tee file.txt | command2 
 ^^ command1 output will go to both file.txt and to command2 
 
+-- 
+
+locate
+#==> the locate command performs a search of pathnames across our machine that match a given substring and then prints out any matching names 
+- locate uses a built-in database file where it stores list of files on the machine, rather than having to search the whole machine each time run this command
+
 
 
 
