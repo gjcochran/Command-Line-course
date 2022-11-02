@@ -1,0 +1,10 @@
+mtime #==> time when file contents were most recently modified
+ctime #==> ie change time, is when a file was last changed which includes all mtime changes but also includes renaming, moving, or altering permissions 
+atime #==> ie access time, is when a file was last read by an application or last read by a command like cat 
+
+ls -l by default only shows mtime 
+ls -lc will show change time 
+la -lu will show access time (ls -la shows info for all files, ie including hidden files)
+
+
+

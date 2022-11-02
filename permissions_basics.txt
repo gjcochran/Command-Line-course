@@ -1,0 +1,37 @@
+- unix and unix-like systems are multiuser operating systems.
+- every file/directory has a file owner and a group owner
+  - groups allow us to group together various users and setting permissions settings for said group
+
+ls -l
+first column returns a 10 character return of the file attributes...
+ex.
+-rw-rw-r--
+these characters tell us the type of the file, the read, write, and execute permission's for the file's owner, the file's group owner, and everyone else
+
+-rw-rw-r--
+0123456789
+
+  0 = file type
+
+    - regular file
+    d directory
+    c character special file
+    l symbolic link
+    b block special files (refer to a device)
+
+  123 = file owner permissions
+  456 = group owner permissions
+  789 = everyone else's permissions
+
+for 123, 456, & 789 ...
+rwx = can read, write, and execute
+rw- = can read and write, but cannot execute
+r-x = can read and execute, but cannot write
+r-- = can read but cannot write or execute
+
+r ... file can be read || directory's conents can be listed
+w ... file can be modified/edited (ie inside of an existing file) || directory's contents can be modified (ie create new files, rename files/folders) but only if the executable attribute is also set 
+x ... file can be treated as a program to be executed || allows a directory to be entered or "cd"ed into
+
+
+

@@ -234,6 +234,192 @@ locate
 #==> the locate command performs a search of pathnames across our machine that match a given substring and then prints out any matching names 
 - locate uses a built-in database file where it stores list of files on the machine, rather than having to search the whole machine each time run this command
 
+- can use with wildcards ex. location less???
+
+options.. 
+locate -i (ignores casing)
+locate -l (limit to a number of matches)
+locate -e (only shows files that exist.. ex. if have removed files but database hasnt updated yet)
+
+--
+
+find 
+#==> more powerful way to find files than the locate command as does not use a database, but b/c of this is slower to return results.
+by default, find will list every single file and directory nested in our current working directory [on linux, on mac, need to specify a specific path for find command to work!, ex. for current directory just write > find . etc...  as . signifies current directory]
+can also provide a specific folder ex. find directory/
+- the big difference between find and ls is that find outputs all nested folders and files so that can see everything that is inside a parent directory in one result 
+
+find -type f (limits search to files)
+find -type d (limits search to folders/directories)
+
+find -name "..." (put some sort of pattern between the quotes)
+find -iname (works same as -name but is case insensitive)
+
+ex. find ~/programming2022 -type f -name "*.txt" #==> will list all files ending in .txt that exist in the folder programming2022 
+
+find -size +1G (find files larger than 1 gigabyte)
+find -size -1G (find files smaller than 1 gigabyte)
+
+can use the -and, -or, and -not logical operators to create more complex queries
+ex. 
+find /path -type -f -not -name "*.html" #==> find all files that do not end in .html 
+ex2.
+find ~ -cmin -60 -not -name "*.log" #==> find all files/folders changed within the last 60 minutes and (and is implied) that dont end in .log
+- can write -not as ! instead 
+
+find -exec command {} ; 
+ex. find ~/programming2022 -type f -empty -exec ls -l '{}' ';'
+
+find -ok command {} ; #==> works same as -exec but prompts before executing for each file (ex. use if mass deleting files with rm)
+
+-- 
+
+xargs 
+#==> a command that is most commonly used with the find command instead of -exec. when we provide a command via -exec, that command is executed separately for every single element. we can instead use a special command called xargs to build up the input into a bundle that will be provided as an argument list to the next command (often -exec or xarg are used for commands that dont accept standard input, ex. ls ) 
+
+ex. 
+find . -name "*/txt" -exec ls '{}' ';' 
+find . -name "*.txt" | xargs ls 
+^ both options will output the same items visually, although are working differently 
+
+-- 
+
+grep 
+#==> the grep command searches for patterns in each file's contents. grep will print each line that matches a pattern we provide. 
+ex. grep "chicken" animals.txt . #=> will print each line from the animals.txt file that contains the pattern "chicken" // note that the . or whatever directory that are trying to search has to be the last item listed for the grep command 
+
+-grep by default is case sensitive 
+
+grep -i #==> case insensitive option 
+grep -w #==> ie. word search... use the -w option to ensure that grep only matches words, rather than fragments located inside of other words. 
+
+// grep recursive search 
+
+use the -r option to perform a recursive search which will include all files under a directory, subfolders and their files, etc 
+
+// other common options, examples
+
+-c (count)
+grep "myself" SongOfMyself.txt -ic 
+#==> 47 #==> means that the word "myself" is written 47 times in that text file 
+
+-A# (will return a match + # of lines after)
+-B# (will return a match + # of lines before)
+-C# (will return a match + # of lines before and after)
+ex. grep "wagon" SongOfMyself.txt -C1 
+#==> 
+The big doors of the country barn stand open and ready,
+The dried grass of the harvest-time loads the slow-drawn wagon,
+The clear light plays on the brown gray and green intertinged,
+--
+--
+The machinist rolls up his sleeves, the policeman travels his beat, the gate-keeper marks who pass,
+The young fellow drives the express-wagon, (I love him, though I do not know him;)
+The half-breed straps on his light boots to compete in the race,
+--
+--
+My face rubs to the hunter’s face when he lies down alone in his blanket,
+The driver thinking of me does not mind the jolt of his wagon,
+The young mother and old mother comprehend me,
+
+-n (line number)
+ex. grep "wagon" SongOfMyself.txt -n 
+#==> 
+226:The dried grass of the harvest-time loads the slow-drawn wagon,
+376:The young fellow drives the express-wagon, (I love him, though I do not know him;)
+1641:The driver thinking of me does not mind the jolt of his wagon,
+
+-m# (will limit the number of results we get, ex m1 will only return the first instance of the grep search)
+
+// grep with regular expressions 
+
+ex. 
+grep 'p......' SongOfMyself.txt -w #==> find all words that start with p and have 6 characters after in SongOfMyself.txt file 
+
+grep "^I" SongOfMyself.txt -w #==> find all lines that start with the letter I 
+
+grep ")$" SongOfMyself #==> find all lines that end with ) 
+
+grep "2[1-6]" SongOfMyself.txt -A8 #==> print the first 8 lines of sections 21-26 
+
+// egrep 
+ie. extended regular expression syntax option for grep 
+
+ex. 
+
+egrep "birds?" -w SongOfMyself.txt #==> ? regex implies that the s is optional so will find all lines that contain either bird or birds 
+
+egrep "[aeiou]{2}" SongOfMyself.txt #==> searching for lines that have words with 2 vowels next to each other 
+
+// piping to grep 
+- a common use case is to use grep to filter down a large chunk of data. 
+
+ex. man command | grep "search" 
+--> man ls | grep "time"
+#==>
+-c      Use time when file status was last changed for sorting (-t) or
+             complete time information for the file, including month, day,
+     -t      Sort by time modified (most recently modified first) before sort-
+     -u      Use time of last access, instead of last modification of the file
+     -U      Use time of file creation, instead of last modification for sort-
+     mines the file time used.
+     If the modification time of the file is more than 6 months in the past or
+     TZ              The timezone to use when displaying dates.  See
+
+
+--
+
+chmod
+#==> the change mode command can change the permissions of a file or directory 
+- need to tell chmod...
+  who are we changing permissions for
+  what change are we making? ie adding/removing
+  which permissions are we setting 
+
+2 ways to use chmod (ie 2 syntaxes that can use):
+  1. symbolic notation 
+    who
+      u - user (ie file owner)
+      g - group 
+      o - others 
+      a - all of the above 
+    what 
+      - (minus sign) removes the permission
+      + grants the permission 
+      = set a permission as the only permission and remove others 
+    which 
+      r - read permission 
+      w - write permission 
+      x - execute permission 
+
+    ex. 
+    chmod g+w file.txt #==> add write permissions for group members 
+    chmod a=r file.txt #==> sets permissions to read ONLY for all (ie -r--r--r--)
+
+  2. octal notation (ie base 8 numbers)
+    - each digit in an octal represents 3 binary digits 
+    Octal     Binary    File Mode 
+    0         000       ---         off-off-off
+    1         001       --x         off-off-on 
+    2         010       -w-         off-on-off 
+    3         011       -wx         etc... 
+    4         100       r--
+    5         101       r-x 
+    6         110       rw- 
+    7         111       rwx 
+
+    ex. 
+    chmod 755 file.txt 
+    #==> owner at octal 7, group at octal 5, world at octal 5 
+    #==> owner 111, group 101, world 101 
+    #==> -rwxr-xr-x 
+    
+
+
+
+
+
+
 
 
 
