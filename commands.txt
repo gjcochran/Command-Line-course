@@ -454,6 +454,17 @@ code
 #==> will open a file/directory in VS code
 (note that i set my default editor to nano in ~/.zprofile (was by default vi).. i think that i could set it to open VS code instead if wanted)
 
+-- 
+tar 
+#==> the take archive command does a whole bunch of things including archiving multiple files and compressing them into one "tar ball"
+
+tar -c ... create
+tar -x ... extract 
+
+--
+pwd
+#==> display path of a directory 
+
 
 
 
