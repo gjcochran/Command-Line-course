@@ -440,6 +440,20 @@ addgroup
 adduser 
 #==> add users to a group ; need sudo 
 
+-- 
+curl 
+#==> requests a URL from the web and outputs the response 
+ex. 
+curl "wttr.in" 
+--> will show us the 3 day weather for current location 
+
+used ~/bin to create a 'weather' command which pulls this URL 
+
+--
+code 
+#==> will open a file/directory in VS code
+(note that i set my default editor to nano in ~/.zprofile (was by default vi).. i think that i could set it to open VS code instead if wanted)
+
 
 
 
