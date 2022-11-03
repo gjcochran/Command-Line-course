@@ -1,0 +1,24 @@
+note that he discusses bash scripting (am assuming for me will be mostly the same as zsh is built on top of the bash shell)
+
+basic steps 
+  1. write a script in a file and save it
+  2. make the script executable using chmod
+  3. verify that the shell can find your script 
+
+// shebang
+the first line of our script should read #!/bin/bash (for bash shell scripts)
+the #! is called the shebang, and its used to tell the OS which interpreter it should use when parsing this file 
+
+after the shebang, we need to include the path to the Bash binary. this is not Bash specific... for ex, if we wanted to write a python script, we would include the path to the python binary 
+
+// PATH variable 
+
+the path variable is a list of directories that the shell will look inside of for executable programs, separated by colons (:) 
+when we execute a command, shell will look inside PATH starting with the first directory and continuing in order until find the command 
+
+-note that I made a command 'hi', put it in ~/bin and added ~/bin to the PATH 
+
+
+
+
+

@@ -413,7 +413,36 @@ chmod
     #==> owner at octal 7, group at octal 5, world at octal 5 
     #==> owner 111, group 101, world 101 
     #==> -rwxr-xr-x 
-    
+
+--
+su
+#==> substitute user 
+
+> su - newuser 
+(note that need the dash(-) in the command so that are in the correct user environment... dash(-) is a shortcut for --login )
+then, will be prompted to enter the newuser password 
+if want to log out, just type "exit" and will go back to main user account 
+
+-- 
+chown 
+#==> change ownership command is used to the change the owner and/or group owner of a spefific file or directory 
+
+- have to use sudo in order to use chown 
+
+owner.. > sudo chown ownername file 
+group owner.. > sudo chown :groupname file
+
+-- 
+addgroup 
+#==> create a new group ; need sudo 
+
+--
+adduser 
+#==> add users to a group ; need sudo 
+
+
+
+
 
 
 
